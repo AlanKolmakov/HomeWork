@@ -1,45 +1,81 @@
-/*Задача 1
-Реализуйте функцию, которая выводит(`console.log`) в терминал числа в диапазоне от`begin` до`end`.При этом:
-- Если число делится без остатка на`3`, то вместо него выводится слово`Fizz`
-- Если число делится без остатка на`5`, то вместо него выводится слово`Buzz`
-- Если число делится без остатка и на`3`, и на`5`, то вместо числа выводится слово`FizzBuzz`
-- В остальных случаях выводится само число
-Функция принимает два параметра(`begin` и`end`), определяющих начало и конец диапазона(включительно).Для простоты считаем, что эти параметры являются целыми числами больше нуля.Если диапазон пуст(в случае, когда`begin > end`), то функция просто ничего не печатает.*/
+"use strict";//Строгий режим
 
-const numOfRange = (begin, end) => { //функция с двумя переменными
-	for ( let i= begin; i-1 < end; i++ ) // цикл, к i прибавляем +1 пока i<end
-	{
-		if (i%3 === 0 && i%5 === 0) //если i%3 и i%5 
-		{
-			console.log ("FizzBuzz"); // выводится FizzBuzz
-		}
-		else if (i%5 === 0)          //если i%5 то
-		{
-			console.log ("Buzz");     //выводится Buzz
-		}
-		else if (i%3 === 0)          //если i%3
-		{
-			console.log ("Fizz");     //выводится Fizz
-		}
-		else                         //в любом другом случаи
-		{
-			console.log (i);          //выводится i
-		}
-	}
+//!Задача 1. Выведите нечетные числа от 1 до 100.
+let num = 0;
+while (num < 100) {
+	num++;
+	if (num % 2) console.log(num);
+};
+
+//!Задача 2. Даны 3 числа. С помощью if/else найдите наибольшее число и наименьшее число.
+//Объявляем переменные
+let num1,
+	num2,
+	num3,
+	min,
+	max;
+
+//Просим пользователя ввести 3 числа
+num1 = prompt("Введите первое число:", "");
+num2 = prompt("Введите второе число:", "");
+num3 = prompt("Введите третье число:", "");
+//Преобразуем строки в цисла
+num1 = Number(num1);
+num2 = Number(num2);
+num3 = Number(num3);
+//Проверяем на пустую строку
+if (num1 == "") {
+	alert("Вы не ввели первое число!!!")
 }
-numOfRange(1,20);    //вызов функции с двумя числами
+else if (num2 == "") {
+	alert("Вы не ввели второе число!!!")
+}
+else if (num3 == "") {
+	alert("Вы не ввели третье число!!!")
+}
+else if (num1 <= num2 && num1 <= num3) {
+	min = num1;
+}
+else if (num2 <= num1 && num2 <= num3) {
+	min = num2;
+}
+else {
+	min = num3;
+};
+if (num1 == "") {
+	alert("Вы не ввели первое число!!!")
+}
+else if (num2 == "") {
+	alert("Вы не ввели второе число!!!")
+}
+else if (num3 == "") {
+	alert("Вы не ввели третье число!!!")
+}
+else if (num1 >= num2 && num1 >= num3) {
+	max = num1;
+}
+else if (num2 >= num1 && num2 >= num3) {
+	max = num2;
+}
+else {
+	max = num3;
+};
+console.log('Наименьшее число = ' + min);
+console.log('Наибольшее число = ' + max);
+console.log(num1, num2, num3);
 
-// concole.log(numOfRange(1, 20)); //referenceError
 
-// const absoluteNumber = num => { //SyntaxError
-// 	if (num > 0) {
-// 		return num;
-// 	} else if (num < 0) {
-// 		return -num;
-// 	} else {
-// 		return 0;
-// 	}
-// });
+//!Задача 4. Реализуйте функцию, которая переворачивает строку. 
+let userText = prompt("Введите любой текст:", "");
 
-// const x = 445; //type error
-// const y = x(15);
+const reverse = (str) => {
+	let i = str.length - 1;
+	let result = '';
+
+	while (i >= 0) {
+		result = result + str[i];
+		i = i - 1;
+	}
+	return result;
+};
+console.log(reverse(userText));
