@@ -1,45 +1,65 @@
-/*Задача 1
-Реализуйте функцию, которая выводит(`console.log`) в терминал числа в диапазоне от`begin` до`end`.При этом:
-- Если число делится без остатка на`3`, то вместо него выводится слово`Fizz`
-- Если число делится без остатка на`5`, то вместо него выводится слово`Buzz`
-- Если число делится без остатка и на`3`, и на`5`, то вместо числа выводится слово`FizzBuzz`
-- В остальных случаях выводится само число
-Функция принимает два параметра(`begin` и`end`), определяющих начало и конец диапазона(включительно).Для простоты считаем, что эти параметры являются целыми числами больше нуля.Если диапазон пуст(в случае, когда`begin > end`), то функция просто ничего не печатает.*/
+'use strict';
+//! Задача 1
+//Реализуйте и экспортируйте по умолчанию функцию, которая делает заглавной первую букву каждого слова в предложении.
 
-const numOfRange = (begin, end) => { //функция с двумя переменными
-	for ( let i= begin; i-1 < end; i++ ) // цикл, к i прибавляем +1 пока i<end
-	{
-		if (i%3 === 0 && i%5 === 0) //если i%3 и i%5 
-		{
-			console.log ("FizzBuzz"); // выводится FizzBuzz
-		}
-		else if (i%5 === 0)          //если i%5 то
-		{
-			console.log ("Buzz");     //выводится Buzz
-		}
-		else if (i%3 === 0)          //если i%3
-		{
-			console.log ("Fizz");     //выводится Fizz
-		}
-		else                         //в любом другом случаи
-		{
-			console.log (i);          //выводится i
-		}
-	}
-}
-numOfRange(1,20);    //вызов функции с двумя числами
 
-// concole.log(numOfRange(1, 20)); //referenceError
+//const toUpperFirstStr = (str) => {
+//   let result = '';
+//   for (let i = 0; i < str.length; i += 1) {
+//      if (str[i] !== ' ' && (str[i - 1] === ' ' || i === 0)) {
+//         result += str[i].toUpperCase();
+//		} else {
+//			result += str[i];
+//		}
+//	}
+//	return result;
+//};
+//console.log(toUpperFirstStr('hello world'));
 
-// const absoluteNumber = num => { //SyntaxError
-// 	if (num > 0) {
-// 		return num;
-// 	} else if (num < 0) {
-// 		return -num;
-// 	} else {
-// 		return 0;
-// 	}
-// });
 
-// const x = 445; //type error
-// const y = x(15);
+//! Задача 2.
+//Реализуйте функцию, которая переворачивает цифры в переданном числе и возвращает новое число.
+
+
+//const reverseInt = (num) => {
+//	let result = '';
+//	let initStr = num.toString();
+//	if (num >= 0) {
+//		for (let i = 0; i < initStr.length; i++) {
+//			result = `${initStr[i]}${result}`;
+//		}
+//		return Number(result);
+//	} else if (num < 0) {
+//		for (let i = 1; i < initStr.length; i++) {
+//			result = `${initStr[i]}${result}`;
+//		}
+//		return Number(result) * -1;
+//	} else return(num);
+//};
+
+//console.log(reverseInt(-254));
+
+//! Задача 3.
+//Реализуйте и экспортируйте по умолчанию функцию, которая определяет, является ли переданное число натуральной степенью тройки.Например, число 27 — это третья степень: 3 ^ 3, а 81 — это четвёртая: 3 ^ 4.
+
+
+//const isPowerOfThree = (num) => {
+//	let count = 0;
+//	while (num%3 === 0) {
+//		num /= 3;
+//		count++;
+//	};
+//	if (num === 1) {
+//		console.log(true,3,'^', count);
+//		return true;
+//	}  else {
+//		console.log(false);
+//		return false;
+//	}
+//};
+
+//isPowerOfThree(1);
+//isPowerOfThree(2);
+//isPowerOfThree(9);
+//isPowerOfThree(254);
+//isPowerOfThree(19683);
