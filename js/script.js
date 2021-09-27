@@ -1,45 +1,36 @@
-/*Задача 1
-Реализуйте функцию, которая выводит(`console.log`) в терминал числа в диапазоне от`begin` до`end`.При этом:
-- Если число делится без остатка на`3`, то вместо него выводится слово`Fizz`
-- Если число делится без остатка на`5`, то вместо него выводится слово`Buzz`
-- Если число делится без остатка и на`3`, и на`5`, то вместо числа выводится слово`FizzBuzz`
-- В остальных случаях выводится само число
-Функция принимает два параметра(`begin` и`end`), определяющих начало и конец диапазона(включительно).Для простоты считаем, что эти параметры являются целыми числами больше нуля.Если диапазон пуст(в случае, когда`begin > end`), то функция просто ничего не печатает.*/
+'use strict';
 
-const numOfRange = (begin, end) => { //функция с двумя переменными
-	for ( let i= begin; i-1 < end; i++ ) // цикл, к i прибавляем +1 пока i<end
-	{
-		if (i%3 === 0 && i%5 === 0) //если i%3 и i%5 
-		{
-			console.log ("FizzBuzz"); // выводится FizzBuzz
-		}
-		else if (i%5 === 0)          //если i%5 то
-		{
-			console.log ("Buzz");     //выводится Buzz
-		}
-		else if (i%3 === 0)          //если i%3
-		{
-			console.log ("Fizz");     //выводится Fizz
-		}
-		else                         //в любом другом случаи
-		{
-			console.log (i);          //выводится i
+//! Задача 1.
+
+// функцию, которая принимает на вход в виде массива кошелек с деньгами и название валюты и возвращает сумму денег указанной валюты.
+// параметры функции:
+// массив, содержащий купюры разных валют с различными номиналами
+// наименование валюты:
+//const money1 = ['eur 10', 'usd 1', 'usd 10', 'rub 50', 'usd 5',];
+//getTotalAmount(money1, 'usd') // 16
+//const money2 = ['eur 10', 'usd 1', 'eur 5', 'rub 100', 'eur 20', 'eur 100', 'rub 200',];
+//getTotalAmount(money2, 'eur') // 135
+//const money3 = ['eur 10', 'rub 50', 'eur 5', 'rub 10', 'rub 10', 'eur 100', 'rub 200',];
+//getTotalAmount(money3, 'rub') // 270
+
+const getTotalAmount = (money, currency) => {
+	let sum = 0;
+
+	for (const i of money) {
+		const value = i.split(" ");
+		if (value[0] === currency) {
+			sum += +value[1];
 		}
 	}
-}
-numOfRange(1,20);    //вызов функции с двумя числами
+	console.log(sum + ' ' + currency);
+	return sum;
+};
 
-// concole.log(numOfRange(1, 20)); //referenceError
+const money1 = ['eur 10', 'usd 1', 'usd 10', 'rub 50', 'usd 5',];
+getTotalAmount(money1, "usd"); // 16
 
-// const absoluteNumber = num => { //SyntaxError
-// 	if (num > 0) {
-// 		return num;
-// 	} else if (num < 0) {
-// 		return -num;
-// 	} else {
-// 		return 0;
-// 	}
-// });
+const money2 = ['eur 10', 'usd 1', 'eur 5', 'rub 100', 'eur 20', 'eur 100', 'rub 200',];
+getTotalAmount(money2, "eur"); // 135
 
-// const x = 445; //type error
-// const y = x(15);
+const money3 = ['eur 10', 'rub 50', 'eur 5', 'rub 10', 'rub 10', 'eur 100', 'rub 200',];
+getTotalAmount(money3, "rub"); // 270
